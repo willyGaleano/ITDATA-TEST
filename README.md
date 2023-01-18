@@ -13,14 +13,25 @@ MONGODB_URL=mongodb://localhost:27018/tokenization
 SECRET_KEY=ITDATASECRET
 ```
 
-## Init
+## Correr localmente
 
-En la raiz del proyecto ejecutar el siguiente comando:
+Clonar el proyecto y ejecutar el siguiente comando:
 
 ```bash
 docker-compose up
 ```
 
+## Ejecutar pruebas
+
+```bash
+yarn test
+```
+
+## Generar build
+
+```bash
+yarn build
+```
 ## Endpoints 🚀
 
 _Generate Token_
