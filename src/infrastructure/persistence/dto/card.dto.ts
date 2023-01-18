@@ -1,4 +1,4 @@
-import { IsEmail, IsNumber, IsOptional, IsString } from 'class-validator';
+import { IsNumber, IsOptional, IsString } from 'class-validator';
 
 export class CreateCardDTO {
   @IsNumber()
@@ -9,7 +9,7 @@ export class CreateCardDTO {
   expiration_month?: string;
   @IsString()
   expiration_year?: string;
-  @IsEmail()
+  @IsString()
   email?: string;
   @IsString()
   @IsOptional()

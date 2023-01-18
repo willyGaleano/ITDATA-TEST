@@ -1,73 +1,59 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# ITDATA CHALLENGE API
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Prueba técnica - ITDATA
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+- [Base URL : http://localhost:3010/v1](http://localhost:3010/v1)
 
-## Description
+## Config
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
-## Installation
+Crear los archivos .env:
 
 ```bash
-$ npm install
+MONGODB_URL=mongodb://localhost:27018/tokenization
+SECRET_KEY=ITDATASECRET
 ```
 
-## Running the app
+## Init
+
+En la raiz del proyecto ejecutar el siguiente comando:
 
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+docker-compose up
 ```
 
-## Test
+## Endpoints 🚀
 
-```bash
-# unit tests
-$ npm run test
+_Generate Token_
 
-# e2e tests
-$ npm run test:e2e
+localhost:3010/v1/card/generate-token
 
-# test coverage
-$ npm run test:cov
-```
+[![generate-Token.png](https://i.postimg.cc/k5Qg25sv/generate-Token.png)](https://postimg.cc/mcrsqB0P)
 
-## Support
+Se valida cada campo según lo solicitado
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+[![validation-Card.png](https://i.postimg.cc/kX28BxbN/validation-Card.png)](https://postimg.cc/Mv8XLftX)
 
-## Stay in touch
+Se valida la existencia de un pk(token) en el header
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+[![validation-PK.png](https://i.postimg.cc/pV4rc3m8/validation-PK.png)](https://postimg.cc/gryGnSqk)
 
-## License
 
-Nest is [MIT licensed](LICENSE).
+_Get Card_
+
+localhost:3010/v1/card/find?token=token
+
+[![getCard.png](https://i.postimg.cc/cHT94Qny/getCard.png)](https://postimg.cc/PppzSvy2)
+
+Si el token vence nos mostrará ese detalle
+
+[![expired-Token.png](https://i.postimg.cc/d0VTcrwT/expired-Token.png)](https://postimg.cc/G46pkBBc)
+
+Se valida la existencia de un pk(token) en el header
+
+[![validation-PKGet-Card.png](https://i.postimg.cc/yYfgKnYX/validation-PKGet-Card.png)](https://postimg.cc/gnZkqVhn)
+
+---
+
+## Explicación de la construcción del proyecto
+
+https://docs.google.com/document/d/1HCfV-xVDxUWwt3aYZlEUGEC608oE17t4Jj3ae5Nzr_M/edit?usp=sharing

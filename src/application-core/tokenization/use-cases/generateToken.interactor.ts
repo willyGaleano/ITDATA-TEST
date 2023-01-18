@@ -18,7 +18,7 @@ export class GenerateTokenInteractor {
 
       const errors = this.tokenizationUtil.validationCard(payload);
       if (errors.length > 0) {
-        throw new Error(errors.join(' '));
+        throw new Error(errors.join('--'));
       }
       const cardTemp = {
         ...payload,

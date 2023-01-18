@@ -24,7 +24,7 @@ const services = [
         return {
           secret: configService.get('JWT_SECRET'),
           signOptions: {
-            expiresIn: '180s',
+            expiresIn: '60s',
           },
         };
       },
